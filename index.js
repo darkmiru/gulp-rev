@@ -33,7 +33,6 @@ function transformFilename(file, options) {
 	if (options) {
 		if (options.getKey) {
 			const key = options.getKey(file);
-			console.log(key);
 			file.revHash = revHash(key);
 		} else if (options.key) {
 			file.revHash = revHash(options.key);

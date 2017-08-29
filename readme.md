@@ -37,7 +37,21 @@ gulp.task('default', () =>
 
 ## API
 
-### rev()
+### rev([options])
+
+#### options
+
+##### key
+
+Type: `string`
+
+Override the `key` of revHash.
+
+##### getKey
+
+Type: `function`
+
+Generate the `key` of revHash from file.
 
 ### rev.manifest([path], [options])
 

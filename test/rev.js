@@ -4,6 +4,21 @@ import pEvent from 'p-event';
 import rev from '..';
 import createFile from './helpers';
 
+test('revs files with key', async t => {
+	const stream = rev({
+		key: '111'
+	});
+	const data = pEvent(stream, 'data');
+
+	stream.end(createFile({
+		path: 'unicorn.css'
+	}));
+
+	const file = await data;
+	t.is(file.path, 'unicorn-698d51a19d.css');
+	t.is(file.revOrigPath, 'unicorn.css');
+});
+
 test('revs files', async t => {
 	const stream = rev();
 	const data = pEvent(stream, 'data');
